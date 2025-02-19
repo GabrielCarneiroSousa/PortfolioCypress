@@ -1,0 +1,14 @@
+  it.only('exibe mensagem de erro ao submeter o formulario com um email com formatacao invalida', () => {
+    const longText = Cypress._.repeat(' teste teste teste teste', 10)
+
+
+    cy.get('#firstName').type('Gabriel')
+    cy.get('#lastName').type('Carneiro de Sousa')
+    cy.get('#email').type('GabrielCarneiro,com')
+    cy.get('#open-text-area').type(longText, {delay: 0 })
+    cy.get('button[type="submit"]').click()
+
+    cy.get('.error > strong').should('be.visible')
+
+
+  })

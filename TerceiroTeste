@@ -1,0 +1,5 @@
+  it.only('campo telefone continua vazio, quando recebe algo que nao e numerico', () => {
+    cy.get('#phone').type('tem que continuar vazio').should('have.value', '')
+    cy.get('#phone-checkbox').click()
+  })
+})

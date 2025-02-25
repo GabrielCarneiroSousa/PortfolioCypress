@@ -1,0 +1,19 @@
+//esse foi um teste criando e aprendendo a usar comandos customizados
+   it.only('envia o formulario com sucesso usando um comando customizado', () => {               // o comando sendo usado 
+        cy.fillMandatoryFieldsAndSubmit()
+
+        cy.get('.sucess').should('be.visible')
+    });
+
+    Cypress.Commands.add('fillMandatoryFieldsAndSubmit', (data = { // criando o comando e ja passando valores default
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'teste@gmail.com',
+    text: 'test.'
+}) => {
+    cy.get('#firstName').type('data.firstName')
+    cy.get('#lastName').type('data.lastName')
+    cy.get('#email').type('data.email')
+    cy.get('#open-text-area').type('data.text')
+    cy.get('button[type="submit"]').click()
+})

@@ -1,0 +1,19 @@
+// selecionando opcoes em campos de selecao suspensa 
+  it('seleciona um produto (youtube) por seu texto', () => {
+    cy.get('#product')
+      .select('YouTube')
+        .should('have.value', 'youtube')
+  })
+
+  it('seleciona o produto (mentoria) por seu valor (value) ', () => {
+    cy.get('#product')
+      .select('mentoria')
+        .should('have.value', 'mentoria')
+  })
+
+  it('Seleciona o produto (Blog) por seu indice',() => {
+    cy.get('#product')
+      .select(1) // para selecionar por indice nao se usa aspas simples
+        .should('have.value', 'blog')
+  })
+})
